@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Receipt Generator</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>🧾 Receipt Generator</h2>
+
+<form method="POST">
+
+<input type="text" name="item" placeholder="Item Name" required>
+
+<input type="number" name="qty" placeholder="Quantity" required>
+
+<input type="number" step="0.01" name="price" placeholder="Price" required>
+
+<button>Generate</button>
+
+</form>
+
+{% if receipt %}
+
+<hr>
+
+<p><b>Date:</b> {{receipt.date}}</p>
+
+<p><b>Item:</b> {{receipt.item}}</p>
+
+<p><b>Quantity:</b> {{receipt.qty}}</p>
+
+<p><b>Price:</b> ₹{{receipt.price}}</p>
+
+<h3>Total : ₹{{receipt.total}}</h3>
+
+<button onclick="window.print()">Print Receipt</button>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
